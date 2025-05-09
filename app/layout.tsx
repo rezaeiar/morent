@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import Header from "./components/modules/Header";
+import Header from "./components/common/Header/Header";
 
 const roboto = Roboto({
   variable: "--font-roboto",

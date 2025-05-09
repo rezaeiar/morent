@@ -1,7 +1,7 @@
 import React from 'react'
-import HeartIcon from './HeartIcon'
-import NotificationIcon from './NotificationIcon'
-import SettingsIcon from './SettingsIcon'
+import HeartIcon from './icons/HeartIcon'
+import NotificationIcon from './icons/NotificationIcon'
+import SettingsIcon from './icons/SettingsIcon'
 
 const Tools = () => {
 

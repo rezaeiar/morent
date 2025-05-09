@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchIcon from './SearchIcon'
+import SearchIcon from './icons/SearchIcon'
 
 const SearchBar = () => {
     return (
@@ -15,7 +15,7 @@ const SearchBar = () => {
                 />
             </div>
             <div className="">
-                <div className="bg-secondary-800 rounded-2xl text-primary py-1.5 px-2.5 text-xs">
+                <div className="bg-secondary-800 rounded-2xl text-primary-0 py-1.5 px-2.5 text-xs">
                     Ctrl + K
                 </div>
             </div>
