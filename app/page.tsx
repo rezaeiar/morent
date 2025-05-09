@@ -1,7 +1,9 @@
+import HeroBanners from "./components/home/HeroBanners/HeroBanners";
+
 export default function Home() {
-  return (
-    <div className="">
-      Hello, World!
-    </div>
-  );
+    return (
+        <>
+            <HeroBanners />
+        </>
+    );
 }
