@@ -21,16 +21,14 @@ const Tools = () => {
     ]
     return (
         <>
-            {
-                toolList.map(tool => (
-                    <div
-                        className="h-11 w-11 rounded-full border border-[#C3D4E9] flex items-center justify-center"
-                        key={tool.id}
-                    >
-                        {tool.icon}
-                    </div>
-                ))
-            }
+            {toolList.map(tool => (
+                <div
+                    className="h-11 w-11 rounded-full border border-secondary-200/40 flex items-center justify-center"
+                    key={tool.id}
+                >
+                    {tool.icon}
+                </div>
+            ))}
         </>
     )
 }

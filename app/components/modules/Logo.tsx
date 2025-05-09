@@ -9,7 +9,7 @@ const Logo = ({ title }: LogoProps) => {
     return (
         <Link
             href={"/"}
-            className='text-xl text-blue-500 font-bold'
+            className='text-xl text-primary-500 font-bold'
         >
             {title.toUpperCase()}
         </Link>
