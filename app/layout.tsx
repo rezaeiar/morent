@@ -21,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} antialiased font-main`}
+        className={`${roboto.variable} antialiased font-main bg-secondary-200/20`}
       >
         <Header />
-        {children}
+        <div className="py-8">
+          {children}
+        </div>
       </body>
     </html>
   );
