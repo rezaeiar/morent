@@ -4,7 +4,7 @@ import BannerSecondary from './banners/BannerSecondary'
 
 const HeroBanners = () => {
     return (
-        <div>
+        <div className='mb-8'>
             <div className="container mx-auto">
                 <div className="grid grid-cols-2 gap-8">
                     <BannerPrimary />
