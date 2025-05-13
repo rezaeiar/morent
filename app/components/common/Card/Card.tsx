@@ -17,7 +17,7 @@ type CardProps = {
 const Card = ({ name, type, image, transmission, tankCapacity, seats, pricePerDay, discountedPricePerDay }: CardProps) => {
     return (
         <div
-            className='bg-white rounded-lg p-6 space-y-10'
+            className='bg-white rounded-lg p-6 space-y-10 shadow'
         >
             <div className="flex justify-between">
                 <div className="">
