@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
 import Header from "../components/common/Header/Header";
 import Footer from "../components/common/Footer/Footer";
-
-const roboto = Roboto({
-    variable: "--font-roboto",
-    subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
     title: "Morent",

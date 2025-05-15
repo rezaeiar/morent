@@ -5,7 +5,7 @@ import React from 'react'
 const Profile = () => {
     return (
         <Link
-            className='h-11 w-11 rounded-full overflow-hidden'
+            className='h-7 w-7 lg:h-11 lg:w-11 rounded-full overflow-hidden'
             href={'/profile'}
         >
             <Image

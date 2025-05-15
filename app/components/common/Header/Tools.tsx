@@ -23,7 +23,7 @@ const Tools = () => {
         <>
             {toolList.map(tool => (
                 <div
-                    className="h-11 w-11 rounded-full border border-secondary-200/40 flex items-center justify-center"
+                    className="h-7 w-7 lg:h-11 lg:w-11 rounded-full border border-secondary-200/40 hidden items-center justify-center lg:flex"
                     key={tool.id}
                 >
                     {tool.icon}

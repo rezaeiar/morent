@@ -5,7 +5,7 @@ import Image from 'next/image'
 const ProductOverview = () => {
     return (
         <div className="">
-            <div className="container mx-auto">
+            <div className="container px-4 mx-auto">
                 <div className='grid grid-cols-3 gap-6'>
                     <div className="space-y-6">
                         <BannerPrimary />

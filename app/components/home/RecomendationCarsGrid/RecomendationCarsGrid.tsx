@@ -153,7 +153,7 @@ const RecomendationCarsGrid = () => {
 
   return (
     <div>
-      <div className="container mx-auto">
+      <div className="container px-4 mx-auto">
         <div className="space-y-5">
           <div className="">
             <h3 className='text-secondary-300'>
