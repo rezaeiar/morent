@@ -1,6 +1,6 @@
 import React from 'react'
-import LoginForm from '../components/login/LoginFormContent'
+import LoginFormContent from '../components/login/LoginFormContent'
 
-const page = () => <LoginForm />
+const page = () => <LoginFormContent />
 
 export default page

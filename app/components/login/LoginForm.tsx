@@ -75,12 +75,12 @@ const LoginForm = () => {
                 type="button"
                 className='bg-secondary-600 w-full text-sm text-white p-3 rounded'
             >
-                Or sign in with Google
+                Or sign up with Google
             </button>
 
             <span className='text-secondary-800 space-x-1 text-sm block text-center'>
                 <span>Don’t have an account?</span>
-                <Link href={"/"} className='text-primary-500 underline'>
+                <Link href={"/register"} className='text-primary-500 underline'>
                     Sign up now
                 </Link>
             </span>
