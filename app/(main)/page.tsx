@@ -4,8 +4,8 @@ import RecomendationCarsGrid from "../components/home/RecomendationCarsGrid/Reco
 export default function Home() {
     return (
         <>
-            {/* <HeroBanners />
-            <RecomendationCarsGrid /> */}
+            <HeroBanners />
+            <RecomendationCarsGrid />
         </>
     );
 }

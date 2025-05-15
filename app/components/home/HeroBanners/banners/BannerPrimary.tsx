@@ -12,11 +12,11 @@ const BannerPrimary = () => {
                 className='h-full w-full object-cover absolute top-0 left-0'
             />
             <div className="flex flex-col justify-center z-10 relative text-primary-0 gap-4">
-                <h2 className='text-2xl font-bold'>
+                <h2 className='text-xl lg:text-2xl font-bold'>
                     The Best Platform <br />
                     for Car Rental
                 </h2>
-                <p>
+                <p className='text-sm lg:text-base'>
                     Ease of doing a car rental safely and <br />
                     reliably. Of course at a low price.
                 </p>
@@ -28,7 +28,7 @@ const BannerPrimary = () => {
                     width={1080}
                     alt='BG'
                     src={"/images/cars/image 7.png"}
-                    className='w-2/3 self-center'
+                    className='w-full sm:w-2/3 self-center'
                 />
             </div>
         </div>
