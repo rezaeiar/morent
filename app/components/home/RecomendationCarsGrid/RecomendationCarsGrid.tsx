@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../../common/Card/Card';
+import Link from 'next/link';
 
 type CardProps = {
   id: number,
@@ -154,7 +155,7 @@ const RecomendationCarsGrid = () => {
   return (
     <div>
       <div className="container px-4 mx-auto">
-        <div className="space-y-5">
+        <div className="space-y-8">
           <div className="">
             <h3 className='text-secondary-300'>
               Recomendation Car
@@ -166,6 +167,20 @@ const RecomendationCarsGrid = () => {
                 <Card {...car} key={car.id} />
               ))
             }
+          </div>
+          <div className="flex justify-between items-center">
+            <span className='w-20'></span>
+            <Link
+              className='bg-primary-600 py-2 px-3 text-sm rounded-md text-white'
+              href={"/category"}
+            >
+              Show more cars
+            </Link>
+            <span
+              className='text-sm text-secondary-300 w-20 text-end'
+            >
+              120 Cars
+            </span>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../../common/Card/Card';
+import Link from 'next/link';
 
 type CardProps = {
   id: number,
@@ -67,10 +68,16 @@ const PopularCarsGrid = () => {
     <div className='mb-10'>
       <div className="container px-4 mx-auto">
         <div className="space-y-5">
-          <div className="">
+          <div className="flex justify-between items-center">
             <h3 className='text-secondary-300'>
               Popular Car
             </h3>
+            <Link
+              href={'/popular'}
+              className='text-primary-600 underline text-sm'
+            >
+              View All
+            </Link>
           </div>
           <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
             {
