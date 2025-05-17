@@ -14,7 +14,7 @@ type Filters = {
 }
 
 const FilterSidebar: React.FC<FilterSidebarProps> = ({ maxPrice = 100, mobileDisplay, changeDisplay }) => {
-    
+
     const [filters, setFilters] = useState<Filters>({
         type: [],
         capacity: [],
@@ -74,11 +74,16 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ maxPrice = 100, mobileDis
     };
 
     return (
-        <div className={`p-6 bg-white rounded-xl flex-col gap-10 shadow flex ${mobileDisplay ? "fixed top-0 left-0 w-full h-screen m-0 z-40" : "h-fit sticky top-6"} `}>
+        <div className={`p-6 bg-white rounded-xl flex-col gap-10 space-y-6 shadow flex ${mobileDisplay ? "fixed lg:static top-0 left-0 w-full h-screen lg:w-auto lg:h-auto m-0 z-40" : "h-fit sticky top-6 hidden lg:block"} `}>
 
             {/* Type */}
             <div className="space-y-4">
-                <h4 className='text-secondary-300 text-sm'>Type</h4>
+                <div className="flex justify-between items-center">
+                    <h4 className='text-secondary-300 text-sm'>Type</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 block lg:hidden cursor-pointer text-gray-400" onClick={changeDisplay}>
+                        <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+                    </svg>
+                </div>
                 <ul className='space-y-3'>
                     {[
                         { id: 'sedan', label: 'Sedan', count: 12 },
