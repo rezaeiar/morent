@@ -1,91 +1,159 @@
-import React from 'react'
+"use client"
+import React, { useState, ChangeEvent, MouseEvent } from 'react'
 
-const FilterSidebar = () => {
+type FilterSidebarProps = {
+    maxPrice?: number,
+    mobileDisplay: boolean,
+    changeDisplay: () => void
+}
+
+type Filters = {
+    type: string[]
+    capacity: string[]
+    price: number
+}
+
+const FilterSidebar: React.FC<FilterSidebarProps> = ({ maxPrice = 100, mobileDisplay, changeDisplay }) => {
+    
+    const [filters, setFilters] = useState<Filters>({
+        type: [],
+        capacity: [],
+        price: maxPrice
+    });
+
+    const [priceTemp, setPriceTemp] = useState<number>(maxPrice);
+
+    const handleCheckboxChange = (category: 'type' | 'capacity', id: string) => {
+        setFilters(prev => {
+            const current = prev[category];
+            const updatedCategory = current.includes(id)
+                ? current.filter(item => item !== id)
+                : [...current, id];
+
+            return {
+                ...prev,
+                [category]: updatedCategory
+            };
+        });
+    };
+
+    const handleRangeChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setPriceTemp(Number(e.target.value));
+    };
+
+    const handleRangeCommit = () => {
+        setFilters(prev => ({
+            ...prev,
+            price: Number(priceTemp)
+        }));
+    };
+
+    const buildQueryString = (): string => {
+        const params = new URLSearchParams();
+
+        if (filters.type.length > 0) {
+            params.append('type', filters.type.join(','));
+        }
+
+        if (filters.capacity.length > 0) {
+            params.append('capacity', filters.capacity.join(','));
+        }
+
+        if (filters.price !== maxPrice) {
+            params.append('price', filters.price.toString());
+        }
+
+        return params.toString();
+    };
+
+    const handleApplyFilters = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        const queryString = buildQueryString();
+        console.log("Query String:", queryString);
+        // router.push(`/search?${queryString}`) یا ارسال به API
+    };
+
     return (
-        <div className='p-6 bg-white rounded-xl flex flex-col gap-10 shadow sticky top-6 h-fit'>
+        <div className={`p-6 bg-white rounded-xl flex-col gap-10 shadow flex ${mobileDisplay ? "fixed top-0 left-0 w-full h-screen m-0 z-40" : "h-fit sticky top-6"} `}>
 
+            {/* Type */}
             <div className="space-y-4">
-                <h4 className='text-secondary-300 text-sm'>
-                    Type
-                </h4>
+                <h4 className='text-secondary-300 text-sm'>Type</h4>
                 <ul className='space-y-3'>
-                    <li className='flex gap-2 items-center'>
-                        <input type="checkbox" id="sedan" />
-                        <label htmlFor="sedan" className="text-sm text-secondary-900 cursor-pointer">
-                            Sedan <span className='text-secondary-400'>(12)</span>
-                        </label>
-                    </li>
-                    <li className='flex gap-2 items-center'>
-                        <input type="checkbox" id="suv" />
-                        <label htmlFor="suv" className="text-sm text-secondary-900 cursor-pointer">
-                            SUV <span className='text-secondary-400'>(8)</span>
-                        </label>
-                    </li>
-                    <li className='flex gap-2 items-center'>
-                        <input type="checkbox" id="hatchback" />
-                        <label htmlFor="hatchback" className="text-sm text-secondary-900 cursor-pointer">
-                            Hatchback <span className='text-secondary-400'>(5)</span>
-                        </label>
-                    </li>
-                    <li className='flex gap-2 items-center'>
-                        <input type="checkbox" id="convertible" />
-                        <label htmlFor="convertible" className="text-sm text-secondary-900 cursor-pointer">
-                            Convertible <span className='text-secondary-400'>(2)</span>
-                        </label>
-                    </li>
-                    <li className='flex gap-2 items-center'>
-                        <input type="checkbox" id="pickup" />
-                        <label htmlFor="pickup" className="text-sm text-secondary-900 cursor-pointer">
-                            Pickup <span className='text-secondary-400'>(4)</span>
-                        </label>
-                    </li>
+                    {[
+                        { id: 'sedan', label: 'Sedan', count: 12 },
+                        { id: 'suv', label: 'SUV', count: 8 },
+                        { id: 'hatchback', label: 'Hatchback', count: 5 },
+                        { id: 'convertible', label: 'Convertible', count: 2 },
+                        { id: 'pickup', label: 'Pickup', count: 4 },
+                    ].map(({ id, label, count }) => (
+                        <li key={id} className='flex gap-2 items-center'>
+                            <input
+                                type="checkbox"
+                                id={id}
+                                checked={filters.type.includes(id)}
+                                onChange={() => handleCheckboxChange('type', id)}
+                            />
+                            <label htmlFor={id} className="text-sm text-secondary-900 cursor-pointer">
+                                {label} <span className='text-secondary-400'>({count})</span>
+                            </label>
+                        </li>
+                    ))}
                 </ul>
             </div>
 
+            {/* Capacity */}
             <div className="space-y-4">
-                <h4 className='text-secondary-300 text-sm'>
-                    Capacity
-                </h4>
+                <h4 className='text-secondary-300 text-sm'>Capacity</h4>
                 <ul className='space-y-3'>
-                    <li className='flex gap-2 items-center'>
-                        <input type="checkbox" id="2-person" />
-                        <label htmlFor="2-person" className="text-sm text-secondary-900 cursor-pointer">
-                            2 Persons <span className='text-secondary-400'>(3)</span>
-                        </label>
-                    </li>
-                    <li className='flex gap-2 items-center'>
-                        <input type="checkbox" id="4-person" />
-                        <label htmlFor="4-person" className="text-sm text-secondary-900 cursor-pointer">
-                            4 Persons <span className='text-secondary-400'>(10)</span>
-                        </label>
-                    </li>
-                    <li className='flex gap-2 items-center'>
-                        <input type="checkbox" id="5-person" />
-                        <label htmlFor="5-person" className="text-sm text-secondary-900 cursor-pointer">
-                            5 Persons <span className='text-secondary-400'>(7)</span>
-                        </label>
-                    </li>
-                    <li className='flex gap-2 items-center'>
-                        <input type="checkbox" id="7plus-person" />
-                        <label htmlFor="7plus-person" className="text-sm text-secondary-900 cursor-pointer">
-                            7 or more <span className='text-secondary-400'>(2)</span>
-                        </label>
-                    </li>
+                    {[
+                        { id: '2-person', label: '2 Persons', count: 3 },
+                        { id: '4-person', label: '4 Persons', count: 10 },
+                        { id: '5-person', label: '5 Persons', count: 7 },
+                        { id: '7plus-person', label: '7 or more', count: 2 },
+                    ].map(({ id, label, count }) => (
+                        <li key={id} className='flex gap-2 items-center'>
+                            <input
+                                type="checkbox"
+                                id={id}
+                                checked={filters.capacity.includes(id)}
+                                onChange={() => handleCheckboxChange('capacity', id)}
+                            />
+                            <label htmlFor={id} className="text-sm text-secondary-900 cursor-pointer">
+                                {label} <span className='text-secondary-400'>({count})</span>
+                            </label>
+                        </li>
+                    ))}
                 </ul>
             </div>
 
+            {/* Price */}
             <div className="space-y-4">
-                <h4 className='text-secondary-300 text-sm'>
-                    Price
-                </h4>
-                <input type="range" className='w-full' min={0} max={100} />
+                <h4 className='text-secondary-300 text-sm'>Price</h4>
+                <input
+                    type="range"
+                    className='w-full'
+                    min={0}
+                    max={maxPrice}
+                    value={priceTemp}
+                    onChange={handleRangeChange}
+                    onMouseUp={handleRangeCommit}
+                    onTouchEnd={handleRangeCommit}
+                />
                 <span className='text-secondary-500 text-sm font-bold'>
-                    Max. $100.00
+                    Max. ${priceTemp}.00
                 </span>
             </div>
 
+            {/* Apply Button */}
+            <button
+                onClick={handleApplyFilters}
+                className='bg-primary-500 hover:bg-primary-600 text-white text-sm py-2 px-4 rounded-lg transition'
+            >
+                Apply Filters
+            </button>
         </div>
-    )
-}
+    );
+};
 
-export default FilterSidebar
+export default FilterSidebar;

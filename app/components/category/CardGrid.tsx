@@ -152,7 +152,7 @@ const CardGrid = () => {
 
 
     return (
-        <div className="grid grid-cols-3 gap-8 col-span-4">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 col-span-3 xl:col-span-4">
             {
                 cars.map((car) => (
                     <Card {...car} key={car.id} />
