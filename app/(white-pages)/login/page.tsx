@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginFormContent from '../components/login/LoginFormContent'
+import LoginFormContent from '../../components/auth/login/LoginFormContent'
 
 const page = () => <LoginFormContent />
 

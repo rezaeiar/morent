@@ -7,10 +7,7 @@ type LogoProps = {
 
 const Logo = ({ title }: LogoProps) => {
     return (
-        <Link
-            href={"/"}
-            className='text-xl text-primary-500 font-bold'
-        >
+        <Link href={"/"} className='text-xl text-primary-500 font-bold'  >
             {title.toUpperCase()}
         </Link>
     )

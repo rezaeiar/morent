@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import Logo from '../common/Logo'
+import Logo from '../../common/Logo'
 import LoginForm from './LoginForm'
 
 const LoginFormContent = () => {
