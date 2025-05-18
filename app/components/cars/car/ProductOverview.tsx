@@ -1,10 +1,10 @@
 import React from 'react'
-import BannerPrimary from '../home/HeroBanners/banners/BannerPrimary'
+import BannerPrimary from '../../home/HeroBanners/banners/BannerPrimary'
 import Image from 'next/image'
 
 const ProductOverview = () => {
     return (
-        <div className="">
+        <div className="mb-8">
             <div className="container px-4 mx-auto">
                 <div className='grid grid-cols-3 gap-6'>
                     <div className="space-y-6">
