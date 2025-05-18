@@ -1,5 +1,5 @@
 import React from 'react'
-import BannerPrimary from '../../home/HeroBanners/banners/BannerPrimary'
+import BannerPrimary from '../../home/HeroBanners/banners/Banner'
 import Image from 'next/image'
 
 const ProductOverview = () => {

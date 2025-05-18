@@ -1,6 +1,7 @@
 import React from 'react'
-import HeartIcon from '../Header/icons/HeartIcon';
+import HeartIcon from './Header/icons/HeartIcon';
 import Image from 'next/image';
+import Button from './Button';
 
 type CardProps = {
     id: number,
@@ -89,9 +90,11 @@ const Card = ({ name, type, image, transmission, tankCapacity, seats, pricePerDa
                             </div>
                         }
                     </div>
-                    <button className='px-5 py-2.5 text-sm bg-primary-500 rounded-xl w-fit text-primary-0'>
+                    <Button
+                    className='rounded-xl px-3 py-2'
+                    >
                         Rent Now
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>

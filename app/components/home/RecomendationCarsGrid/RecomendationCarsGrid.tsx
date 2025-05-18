@@ -1,6 +1,7 @@
 import React from 'react'
-import Card from '../../common/Card/Card';
+import Card from '../../common/Card';
 import Link from 'next/link';
+import Button from '../../common/Button';
 
 type CardProps = {
   id: number,
@@ -170,12 +171,12 @@ const RecomendationCarsGrid = () => {
           </div>
           <div className="flex justify-between items-center">
             <span className='w-20'></span>
-            <Link
-              className='bg-primary-600 py-2 px-3 text-sm rounded-md text-white'
-              href={"/category"}
+            <Button
+              href='/cars'
+              className='py-2 px-3 rounded-xl'
             >
               Show more cars
-            </Link>
+            </Button>
             <span
               className='text-sm text-secondary-300 w-20 text-end'
             >

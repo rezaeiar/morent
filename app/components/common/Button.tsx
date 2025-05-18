@@ -35,7 +35,7 @@ const Button = ({
     none: '',
   }
 
-  const fullWidthClass = fullWidth ? 'w-full' : ''
+  const fullWidthClass = fullWidth ? 'w-full' : 'w-fit'
 
   const finalClass = [
     baseStyles,

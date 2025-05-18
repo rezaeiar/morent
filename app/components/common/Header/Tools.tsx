@@ -1,22 +1,20 @@
 import React from 'react'
-import HeartIcon from './icons/HeartIcon'
-import NotificationIcon from './icons/NotificationIcon'
-import SettingsIcon from './icons/SettingsIcon'
+import { Icon } from '@iconify/react'
 
 const Tools = () => {
 
     const toolList = [
         {
             id: 1,
-            icon: <HeartIcon />
+            icon: <Icon icon="mdi:heart" height={24} width={20} />,
         },
         {
             id: 2,
-            icon: <NotificationIcon />
+            icon: <Icon icon="mdi:bell-outline" height={24} width={20} />,
         },
         {
             id: 3,
-            icon: <SettingsIcon />
+            icon: <Icon icon="mdi:cog-outline" height={24} width={20} />,
         },
     ]
     return (

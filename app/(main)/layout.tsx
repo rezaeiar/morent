@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Header from "../components/common/Header/Header";
-import Footer from "../components/common/Footer/Footer";
+import Footer from "../components/common/Footer";
 
 export const metadata: Metadata = {
     title: "Morent",
-    description: "description",
+    description: "",
 };
 
 export default function RootLayout({

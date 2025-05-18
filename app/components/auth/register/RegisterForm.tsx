@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import Button from '../../common/Button/Button'
+import Button from '../../common/Button'
 import { Icon } from '@iconify/react'
 
 
