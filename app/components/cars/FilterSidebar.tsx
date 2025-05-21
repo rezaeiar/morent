@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, ChangeEvent, MouseEvent } from 'react'
+import Button from '../common/Button'
 
 type FilterSidebarProps = {
     maxPrice?: number,
@@ -151,12 +152,12 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ maxPrice = 100, mobileDis
             </div>
 
             {/* Apply Button */}
-            <button
+            <Button
                 onClick={handleApplyFilters}
-                className='bg-primary-500 hover:bg-primary-600 text-white text-sm py-2 px-4 rounded-lg transition'
+
             >
                 Apply Filters
-            </button>
+            </Button>
         </div>
     );
 };

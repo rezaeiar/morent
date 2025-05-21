@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../common/Card';
+import Sort from './Sort';
 
 type CardProps = {
     id: number,
@@ -152,12 +153,15 @@ const CardGrid = () => {
 
 
     return (
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5 col-span-3 xl:col-span-4">
-            {
-                cars.map((car) => (
-                    <Card {...car} key={car.id} />
-                ))
-            }
+        <div className="col-span-3 xl:col-span-4">
+            <Sort />
+            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                {
+                    cars.map((car) => (
+                        <Card {...car} key={car.id} />
+                    ))
+                }
+            </div>
         </div>
     )
 }

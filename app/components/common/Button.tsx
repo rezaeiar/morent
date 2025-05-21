@@ -6,7 +6,7 @@ import Link from 'next/link'
 type ButtonProps = {
   children: React.ReactNode
   href?: string
-  onClick?: () => void
+  onClick?: any
   fullWidth?: boolean
   variant?: 'primary' | 'secondary' | 'danger' | 'none'
   textColor?: string
